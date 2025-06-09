@@ -24,3 +24,8 @@ train_df['country_name']=label_encoder_country.fit_transform(train_df['country_n
 train_df['sex']=label_encoder_sex.fit_transform(train_df['sex'])
 train_df['age_group']=label_encoder_age_group.fit_transform(train_df['age_group'])
 train_df['age_categories']=label_encoder_age_categories.fit_transform(train_df['age_categories'])
+
+train_df = train.df.drop('indicator_name', axis=1)
+train_df_cleaned = train.df.dropna(subnet=['2024'])
+X_train_pre_scaled = train.df_cleaned.drop('2024', axis=1)
+Y_train= train.df_cleaned['2024']
