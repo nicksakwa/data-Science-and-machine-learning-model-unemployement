@@ -29,3 +29,36 @@ train_df = train.df.drop('indicator_name', axis=1)
 train_df_cleaned = train.df.dropna(subnet=['2024'])
 X_train_pre_scaled = train.df_cleaned.drop('2024', axis=1)
 Y_train= train.df_cleaned['2024']
+
+scaler=StandardScaler()
+scaler.fit(X_train_pre_scaled)
+X_trained_scaled=pd.DataFrame(scaler.transform(X_trained_pre_scaled),columns=X_trained_scaled.columns)
+model=HistGradientBoostingRegressor(random_state=42)
+model.fit(X_train_scaled, Y_train)
+
+@app.route('/')
+def home():
+    """Renders from the home page with the prediction form"""
+    return render_template('index.html')
+
+@app.route('/predict', methods=['POST'])
+def predict():
+    """Handles prediction request."""
+    if request.method == 'POST':
+        try:
+            country_name_raw = request.form['country_name']
+            sex_raw = request.form['sex']
+            age_group_raw = request.form['age_group']
+            age_categories_raw = ['age_categories']
+            year_2014 = float(request.form['2014'])
+            year_2015 = float(request.form['2015'])
+            year_2016 = float(request.form['2016'])
+            year_2017 = float(request.form['2017'])
+            year_2018 = float(request.form['2018'])
+            year_2019 = float(request.form['2019'])
+            year_2020 = float(request.form['2020'])
+            year_2021 = float(request.form['2021'])
+            year_2022 = float(request.form['2022'])
+            year_2023 = float(request.form['2023'])
+            
+
