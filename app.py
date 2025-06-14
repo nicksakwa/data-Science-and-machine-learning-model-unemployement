@@ -61,4 +61,9 @@ def predict():
             year_2022 = float(request.form['2022'])
             year_2023 = float(request.form['2023'])
             
+            try:
+                country_name_encoded= label_encoder_country.transform([country_name])[0]
+            except valueError:
+                country_name_encoded= -1
+                print(f"Warning: country '{country_name_raw}'not seen in training data.")
 
