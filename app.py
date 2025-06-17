@@ -71,5 +71,15 @@ def predict():
             except valueError:
                 sex_encoded = -1
                 print(f"Warning: sex '{sex_raw}' not seen in training data.")
-                
+            try:
+                age_group_encoded= label_encoder_age_group.transform([age_group_raw])[0]
+            except valueError:
+                age_group_encoded = -1
+                print(f"Warning: Age group '{age_group_raw}' not seen in training data.")
+            try:
+                age_categories_encoded = label_encoder_age_categories.transform([age_categories_raw])[0]
+            except valueError:
+                age_categories_encoded = -1
+                print(f"warning: Age cateogries '{age_categories_raw}' not seen in training data.")    
+
 
