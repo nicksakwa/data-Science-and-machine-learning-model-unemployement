@@ -66,4 +66,10 @@ def predict():
             except valueError:
                 country_name_encoded= -1
                 print(f"Warning: country '{country_name_raw}'not seen in training data.")
+            try:
+                sex_encoded = label_encoder_sex.transform([sex_raw])[0]
+            except valueError:
+                sex_encoded = -1
+                print(f"Warning: sex '{sex_raw}' not seen in training data.")
+                
 
