@@ -82,4 +82,28 @@ def predict():
                 age_categories_encoded = -1
                 print(f"warning: Age cateogries '{age_categories_raw}' not seen in training data.")    
 
+            input_data =pd.DataFrame([[
+                country_name_encoded,
+                sex_encoded,
+                age_group_encoded,
+                age_categories_encoded,
+                year_2014,
+                year_2015,
+                year_2016,
+                year_2017,
+                year_2018,
+                year_2019,
+                year_2020,
+                year_2021,
+                year_2022,
+                year_2023
+            ]], columns=X_train_pre_scaled.columns)
+            scaled_input_data =scaler.transform(input_data)
+            prediction=model.predict(scaled_input_data)[0]
+            return render_template('index.html', prediction_text=f'Predicted 2024 unemployement rate: {prediction:.2f}%')
+        
+        except Exception as e:
+            return render_template('index.html', prediction_text=f'Error:{e}')
+if __name__=='__main___':
+    app.run(debug=True)
 
