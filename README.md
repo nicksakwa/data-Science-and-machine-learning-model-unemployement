@@ -1,8 +1,8 @@
 # Hey there!👋
 
-In this repository, I share code on Data Science and Machine learning model for unemployement with python
+In this repository, I share code on Data Science and Machine learning model for unemployment with Python
 
-# Data Science and Machine learning model for unemployement with ScikitLearn
+# Data Science and Machine learning model for Unemployment with ScikitLearn
 
 ## Requirements
 * Scipy
@@ -21,7 +21,7 @@ In this repository, I share code on Data Science and Machine learning model for 
     ```
 3.  **Matplotlib** Install the library using pip in your bash terminal or your directory:
     ```bash
-    pip install matplotlib scipy Flask
+    pip install matplotlib scipy scikitlearn Flask
     ```
 
 ## Running the App
