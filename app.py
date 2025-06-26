@@ -84,7 +84,6 @@ def predict():
             sex_raw = request.form['sex']
             age_group_raw = request.form['age_group']
             age_categories_raw = request.form['age_categories']
-            year_2014 = float(request.form['2014'])
             year_2015 = float(request.form['2015'])
             year_2016 = float(request.form['2016'])
             year_2017 = float(request.form['2017'])
@@ -94,6 +93,7 @@ def predict():
             year_2021 = float(request.form['2021'])
             year_2022 = float(request.form['2022'])
             year_2023 = float(request.form['2023'])
+            year_2024 = float(request.form['2024'])
 
             # Preprocess the input data (same steps as training)
             # Ensure the order of columns matches X_train_pre_scaled
@@ -132,7 +132,6 @@ def predict():
                 sex_encoded,
                 age_group_encoded,
                 age_categories_encoded,
-                year_2014,
                 year_2015,
                 year_2016,
                 year_2017,
@@ -141,7 +140,8 @@ def predict():
                 year_2020,
                 year_2021,
                 year_2022,
-                year_2023
+                year_2023,
+                year_2024,
             ]], columns=X_train_pre_scaled.columns) # Use columns from pre-scaled training data
 
 
@@ -151,7 +151,7 @@ def predict():
             # Make prediction
             prediction = model.predict(scaled_input_data)[0]
 
-            return render_template('index.html', prediction_text=f'Predicted 2024 Unemployment Rate: {prediction:.2f}%')
+            return render_template('index.html', prediction_text=f'Predicted 2025 Unemployment Rate: {prediction:.2f}%')
 
         except Exception as e:
             return render_template('index.html', prediction_text=f'Error: {e}')
