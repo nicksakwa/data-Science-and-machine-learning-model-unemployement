@@ -25,6 +25,6 @@ In this repository, I share code on Data Science and Machine learning model for 
     ```
 
 ## Running the App
-    ```bash
+   ```bash
     python app.py
     ```
